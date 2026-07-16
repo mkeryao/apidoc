@@ -228,6 +228,42 @@ describe('Parser: apiParam', function () {
         tag: 'tagParam',
       },
     },
+    {
+      title: 'With Tag and colon modifier (success)',
+      content: '[tag1:success] {String} name The users name.',
+      expected: {
+        group: 'Parameter',
+        isArray: false,
+        type: 'String',
+        size: undefined,
+        allowedValues: undefined,
+        optional: false,
+        parentNode: undefined,
+        field: 'name',
+        defaultValue: undefined,
+        description: 'The users name.',
+        tag: 'tag1',
+        tagType: 'success',
+      },
+    },
+    {
+      title: 'With Group, Tag and colon modifier (warning)',
+      content: '(user)[tag2:warning] {String} name The users name.',
+      expected: {
+        group: 'user',
+        isArray: false,
+        type: 'String',
+        size: undefined,
+        allowedValues: undefined,
+        optional: false,
+        parentNode: undefined,
+        field: 'name',
+        defaultValue: undefined,
+        description: 'The users name.',
+        tag: 'tag2',
+        tagType: 'warning',
+      },
+    },
   ];
 
   // create

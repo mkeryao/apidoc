@@ -17,6 +17,10 @@
   --meth-post: #4070ec;
   --meth-delete: #ed0039;
   --red: #dc3545;
+  --green: #28a745;
+  --orange: #fd7e14;
+  --blue: #007bff;
+  --info: #17a2b8;
 }
 
 .color-primary {
@@ -122,6 +126,34 @@ td.code {
 
 .label.required {
   background-color: var(--red);
+}
+
+.apidoc-tag {
+  float: right;
+  margin-top: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  user-select: none;
+}
+
+.apidoc-tag-danger {
+  background-color: var(--red);
+}
+
+.apidoc-tag-success {
+  background-color: var(--green);
+}
+
+.apidoc-tag-warning {
+  background-color: var(--orange);
+}
+
+.apidoc-tag-info {
+  background-color: var(--info);
+}
+
+.apidoc-tag-primary {
+  background-color: var(--blue);
 }
 
 .default-value,
