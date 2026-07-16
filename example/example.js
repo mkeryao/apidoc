@@ -30,10 +30,10 @@
  * client = AcmeCorpApi.Client(token="5f048fe")
  * user = client.get_user(42)
  *
- * @apiSuccess {Number}   id            The Users-ID.
- * @apiSuccess {Date}     registered    Registration Date.
- * @apiSuccess {String}   name          Fullname of the User.
- * @apiSuccess {String[]} nicknames     List of Users nicknames (Array of Strings).
+ * @apiSuccess[tag1] {Number}   id            The Users-ID.
+ * @apiSuccess(user)[tag2] {Date}     registered    Registration Date.
+ * @apiSuccess[tag3](user) {String}   name          Fullname of the User.
+ * @apiSuccess[tag4] {String[]} nicknames     List of Users nicknames (Array of Strings).
  * @apiSuccess {Object}   profile       Profile data (example for an Object)
  * @apiSuccess {Number}   profile.age   Users age.
  * @apiSuccess {String}   profile.image Avatar-Image.
@@ -63,7 +63,7 @@ function getUser () { }
  * @apiDescription In this case "apiErrorStructure" is defined and used.
  * Define blocks with params that will be used in several functions, so you dont have to rewrite them.
  *
- * @apiBody {Number} age Age of the User
+ * @apiBody[tag5] {Number} age Age of the User
  * @apiBody {String} name=Caroline Name of the User
  * @apiBody {Object} extraInfo Date when user was hired
  * @apiBody {Date} extraInfo.hireDate Date when user was hired

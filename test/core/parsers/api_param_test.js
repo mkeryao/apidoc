@@ -124,12 +124,98 @@ describe('Parser: apiParam', function () {
         description: 'Some description.',
       },
     },
+    {
+      title: 'With Tag and Type',
+      content: '[tag1] {String} name The users name.',
+      expected: {
+        group: 'Parameter',
+        isArray: false,
+        type: 'String',
+        size: undefined,
+        allowedValues: undefined,
+        optional: false,
+        parentNode: undefined,
+        field: 'name',
+        defaultValue: undefined,
+        description: 'The users name.',
+        tag: 'tag1',
+      },
+    },
+    {
+      title: 'With Group and Tag',
+      content: '(user)[tag1] {String} name The users name.',
+      expected: {
+        group: 'user',
+        isArray: false,
+        type: 'String',
+        size: undefined,
+        allowedValues: undefined,
+        optional: false,
+        parentNode: undefined,
+        field: 'name',
+        defaultValue: undefined,
+        description: 'The users name.',
+        tag: 'tag1',
+      },
+    },
+    {
+      title: 'With Tag and Group',
+      content: '[tag1](user) {String} name The users name.',
+      expected: {
+        group: 'user',
+        isArray: false,
+        type: 'String',
+        size: undefined,
+        allowedValues: undefined,
+        optional: false,
+        parentNode: undefined,
+        field: 'name',
+        defaultValue: undefined,
+        description: 'The users name.',
+        tag: 'tag1',
+      },
+    },
+    {
+      title: 'With Tag and Optional Field',
+      content: '[tag1] [name] The optional name.',
+      expected: {
+        group: 'Parameter',
+        isArray: false,
+        type: undefined,
+        size: undefined,
+        allowedValues: undefined,
+        optional: true,
+        parentNode: undefined,
+        field: 'name',
+        defaultValue: undefined,
+        description: 'The optional name.',
+        tag: 'tag1',
+      },
+    },
+    {
+      title: 'With Tag and Field (No Type, matched by source prefix)',
+      content: '[tag1] name Description',
+      source: '@apiSuccess[tag1] name Description',
+      expected: {
+        group: 'Parameter',
+        isArray: false,
+        type: undefined,
+        size: undefined,
+        allowedValues: undefined,
+        optional: false,
+        parentNode: undefined,
+        field: 'name',
+        defaultValue: undefined,
+        description: 'Description',
+        tag: 'tag1',
+      },
+    },
   ];
 
   // create
   it('case 1: should pass all regexp test cases', function (done) {
     testCases.forEach(function (testCase) {
-      const parsed = parser.parse(testCase.content);
+      const parsed = parser.parse(testCase.content, testCase.source);
       // TODO
       //(parsed !== null).should.equal(true, 'Title: ' + testCase.title + ', Source: ' + testCase.content);
       assert.deepEqual(parsed, testCase.expected);
