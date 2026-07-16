@@ -16,8 +16,8 @@
  * @apiHeader {String} X-Apidoc-Cool-Factor=big Some other header with a default value.
  * @apiHeaderExample {Header} Header-Example
  *     "Authorization: token 5f048fe"
- * @apiParam {Number} id User unique ID
- * @apiParam {String} region=fr-par User region
+ * @apiParam[tagParam1] {Number} id User unique ID
+ * @apiParam[tagParam2] {String} region=fr-par User region
  * @apiParam {String} [opt] An optional param
  *
  * @apiExample {bash} Curl example

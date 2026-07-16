@@ -210,6 +210,24 @@ describe('Parser: apiParam', function () {
         tag: 'tag1',
       },
     },
+    {
+      title: 'With Tag and Field (No Type, matched by apiParam source prefix)',
+      content: '[tagParam] name Description',
+      source: '@apiParam[tagParam] name Description',
+      expected: {
+        group: 'Parameter',
+        isArray: false,
+        type: undefined,
+        size: undefined,
+        allowedValues: undefined,
+        optional: false,
+        parentNode: undefined,
+        field: 'name',
+        defaultValue: undefined,
+        description: 'Description',
+        tag: 'tagParam',
+      },
+    },
   ];
 
   // create
