@@ -229,6 +229,9 @@
           <tr>
             <td class="code">
             {{{nestObject this}}}
+            {{#if tag}}
+              <span class="label apidoc-tag apidoc-tag-{{#if tagType}}{{tagType}}{{else}}danger{{/if}}">{{tag}}</span>
+            {{/if}}
             {{#if this.optional}}
               <span class="label optional">{{__ "optional"}}</span>
             {{else}}
@@ -275,6 +278,9 @@
           <tr>
             <td class="code">
             {{{nestObject this}}}
+            {{#if tag}}
+              <span class="label apidoc-tag apidoc-tag-{{#if tagType}}{{tagType}}{{else}}danger{{/if}}">{{tag}}</span>
+            {{/if}}
             {{#if this.optional}}
               <span class="label optional">{{__ "optional"}}</span>
             {{else}}
@@ -326,6 +332,9 @@
           <tr>
             <td class="code">
             {{{nestObject this}}}
+            {{#if tag}}
+              <span class="label apidoc-tag apidoc-tag-{{#if tagType}}{{tagType}}{{else}}danger{{/if}}">{{tag}}</span>
+            {{/if}}
             {{#if optional}}
               <span class="label optional">{{__ "optional"}}</span>
             {{else}}
