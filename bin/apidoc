@@ -78,6 +78,8 @@ program
 
   .option('-o, --output <output>', 'Output dirname.', 'doc/')
 
+  .option('--openapi [openapi]', 'Will create OpenAPI 3.0 json file with parsed API info.', false)
+
   .option('--write-json', 'Will create api-data.json file with parsed API info.', false)
 
   .option('--parse-filters <parse-filters...>', 'Optional user defined filters. Format name=filename', [])
@@ -134,6 +136,7 @@ const options = {
   logFormat: argv.logFormat,
   warnError: argv.warnError,
   writeJson: argv.writeJson,
+  openapi: argv.openapi,
 };
 
 if (options.debug) {
